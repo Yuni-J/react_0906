@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import StoreList from './compunents/StoreList';
 import ToDoList from './compunents/ToDoList';
 import UserList from './compunents/UserList';

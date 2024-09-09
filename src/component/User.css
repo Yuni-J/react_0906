@@ -1,0 +1,16 @@
+.user ul{
+    list-style: none;
+    border: 1px solid gray;
+    margin: 0;
+}
+.user h3{
+    font-size: 22px;
+    padding: 10px;
+    margin: 0;
+}
+.user button{
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: none;
+    margin: 5px;
+}

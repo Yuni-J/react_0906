@@ -1,4 +1,4 @@
-import React,{ useRef, useState } from 'react';
+import React,{ useMemo, useRef, useState } from 'react';
 import User from './User';
 import CreateUser from './CreateUser';
 
@@ -99,8 +99,8 @@ const UserList = () => {
         // map : 배열의 처리를 하여 배열로 리턴
         // forEach : 배열의 처리만 하고 리턴하지 않음
         // user.id 가 파라미터의 id와 일치하면 active의 상태를 반전시켜 줌
-        setUsers(users.map(ut=>
-            ut.id === id ? {...ut, active: !ut.active} : ut
+        setUsers(users.map(u=>
+            u.id === id ? {...u, active: !u.active} : u
         ));
     
     }
@@ -113,6 +113,14 @@ const UserList = () => {
     //     })));
     // };
 
+    const countActiveUser = (users) => {
+        //user.active 가 true 인 사용자들 세어서 리턴
+        // setUsers(users.filter(u => u.active == true));
+        return users.filter(user => user.active).length;
+    };
+
+    const count = useMemo(()=>countActiveUser(users), [users]);
+
     return (
         <div className='userList'>
             {/* 컴포넌트에서 데이터를 하위 컴포넌트에게 전달하는 방법 = props */}
@@ -122,7 +130,6 @@ const UserList = () => {
                     <User user={u} key={u.id} onRemove={onRemove} onToggle={onToggle}/>
                 ))
             }
-
             {/* array 랜더링 시 key의 존재 유무에 따라 
                 업데이트, 삭제, 추가 시 효율적으로 랜더링 됨.
             {
@@ -130,8 +137,10 @@ const UserList = () => {
                     <User user={u} key={i}/>
                 })
             } */}
+            <div>완료 사용자수 : {count}</div>
         </div>
     );
 };
 
 export default UserList;
+
