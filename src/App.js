@@ -1,8 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import StoreList from './compunents/StoreList';
-import ToDoList from './compunents/ToDoList';
-import UserList from './compunents/UserList';
+import StoreList from './compunent/StoreList';
+import ToDoList from './compunent/ToDoList';
+import UserList from './compunent/UserList';
 
 function App() {
   return (
